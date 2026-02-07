@@ -54,7 +54,9 @@ class _ProductCardState extends State<ProductCard> {
                 const Text(
                   "added to cart ✅",
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 14, color: Colors.green),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: Colors.green),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 10),
@@ -120,18 +122,56 @@ class _ProductCardState extends State<ProductCard> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.all(10),
-              child: Image.asset(widget.product.image, fit: BoxFit.contain),
+              child: Image.asset(
+                widget.product.image,
+                fit: BoxFit.contain,
+              ),
             ),
           ),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
               widget.product.title,
               style: const TextStyle(
                   fontSize: 14, fontWeight: FontWeight.w600),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
+
+          Padding(
+            padding:
+            const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+            child: Row(
+              children: [
+                Image.asset(
+                  'assets/images/Rate.png',
+                  width: 14,
+                  height: 14,
+                ),
+                const SizedBox(width: 4),
+                Text(
+                  widget.product.rating.toString(),
+                  style: const TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(width: 6),
+                Text(
+                  "(${widget.product.reviews} reviews)",
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.black54,
+                  ),
+                ),
+              ],
+            ),
+          ),
+
           const SizedBox(height: 6),
+
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Row(
@@ -161,7 +201,8 @@ class _ProductCardState extends State<ProductCard> {
                     Text(
                       quantity.toString(),
                       style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 14),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14),
                     ),
                     GestureDetector(
                       onTap: () {
@@ -173,7 +214,8 @@ class _ProductCardState extends State<ProductCard> {
                         height: 28,
                         decoration: BoxDecoration(
                           color: Colors.blue,
-                          borderRadius: BorderRadius.circular(6),
+                          borderRadius:
+                          BorderRadius.circular(6),
                         ),
                         child: const Center(
                           child: Icon(
